@@ -1,6 +1,11 @@
 {
+  "env": {
+    "mocha": true,
+    "node": true
+  },
   "plugins": ["node", "mocha", "security"],
   "extends": [
+    "@tislaamo",
     "eslint:recommended",
     "plugin:node/recommended",
     "plugin:security/recommended"
@@ -8,5 +13,13 @@
   "rules": {
     "node/exports-style": ["error", "module.exports"],
     "mocha/no-exclusive-tests": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": "lib/**/*.test.js",
+      "rules": {
+        "node/no-unpublished-require": 0
+      }
+    }
+  ]
 }
