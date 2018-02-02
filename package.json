@@ -1,0 +1,31 @@
+{
+  "name": "vanilla-template-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "precommit": "lint-staged",
+    "nsp": "nsp check",
+    "eslint": "eslint \"src/**/*.{js,json,css}\"",
+    "format": "prettier-eslint --write \"src/**/*.{js,json,css}\"",
+    "test": "nsp check"
+  },
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": ["prettier-eslint --write", "eslint"]
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-security": "^1.4.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.0",
+    "nsp": "^3.1.0",
+    "prettier": "^1.10.2",
+    "prettier-eslint": "^8.8.1",
+    "prettier-eslint-cli": "^4.7.0"
+  }
+}
