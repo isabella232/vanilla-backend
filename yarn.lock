@@ -376,6 +376,13 @@ concat-stream@^1.6.0:
     readable-stream "^2.2.2"
     typedarray "^0.0.6"
 
+config@^1.29.4:
+  version "1.29.4"
+  resolved "http://192.168.100.30:4873/config/-/config-1.29.4.tgz#1b42752ed86b363fc4025960569fd74978862a92"
+  dependencies:
+    json5 "0.4.0"
+    os-homedir "1.0.2"
+
 cookiejar@^2.1.0, cookiejar@^2.1.1:
   version "2.1.1"
   resolved "http://192.168.100.30:4873/cookiejar/-/cookiejar-2.1.1.tgz#41ad57b1b555951ec171412a81942b1e8200d34a"
@@ -1134,6 +1141,10 @@ json-stable-stringify-without-jsonify@^1.0.1:
   version "1.0.1"
   resolved "http://192.168.100.30:4873/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz#9db7b59496ad3f3cfef30a75142d2d930ad72651"
 
+json5@0.4.0:
+  version "0.4.0"
+  resolved "http://192.168.100.30:4873/json5/-/json5-0.4.0.tgz#054352e4c4c80c86c0923877d449de176a732c8d"
+
 jsprim@^1.2.2:
   version "1.4.1"
   resolved "http://192.168.100.30:4873/jsprim/-/jsprim-1.4.1.tgz#313e66bc1e5cc06e438bc1b7499c2e5c56acb6a2"
@@ -1595,6 +1606,10 @@ ora@^0.2.3:
     cli-cursor "^1.0.2"
     cli-spinners "^0.1.2"
     object-assign "^4.0.1"
+
+os-homedir@1.0.2:
+  version "1.0.2"
+  resolved "http://192.168.100.30:4873/os-homedir/-/os-homedir-1.0.2.tgz#ffbc4988336e0e833de0c168c7ef152121aa7fb3"
 
 os-locale@^2.0.0:
   version "2.1.0"

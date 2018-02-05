@@ -1,0 +1,9 @@
+{
+  "server": {
+    "port": 8080,
+    "name": "vanilla-server"
+  },
+  "database": {
+    "templateDb": "mongodb://localhost/vanilla-templates"
+  }
+}
