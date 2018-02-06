@@ -2,6 +2,8 @@
 
 const config = require("config");
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+const Router = require("restify-router").Router;
 
 const {
   createServer,
@@ -24,9 +26,12 @@ const server = createServer(serverOptions);
 // Template setup
 const templateDbPath = config.get("database.templateDb");
 const templateDb = mongoose.createConnection(templateDbPath);
-const templatesModel = makeTemplatesModel({ dbConnection: templateDb });
+const templatesModel = makeTemplatesModel({ dbConnection: templateDb, Schema });
 const templatesCtrl = makeTemplatesController({ model: templatesModel });
-const templatesRouter = makeTemplatesRouter({ controller: templatesCtrl });
+const templatesRouter = makeTemplatesRouter({
+  controller: templatesCtrl,
+  Router
+});
 templatesRouter.applyRoutes(server, "/templates");
 
 // Start server
