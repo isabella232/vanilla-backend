@@ -9,8 +9,15 @@
     "node": ">=8.0.0"
   },
   "lint-staged": {
-    "{,!(node_modules)/}**/*.{json,css}": ["prettier-eslint --write"],
-    "{,!(node_modules)/}**/*.js": ["prettier-eslint --write", "eslint"]
+    "{,!(node_modules)/}**/*.{json,css}": [
+      "prettier-eslint --write",
+      "git add"
+    ],
+    "{,!(node_modules)/}**/*.js": [
+      "prettier-eslint --write",
+      "eslint",
+      "git add"
+    ]
   },
   "scripts": {
     "precommit": "lint-staged && nsp check",
