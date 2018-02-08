@@ -9,7 +9,9 @@ const {
   createServer,
   makeTemplatesController,
   makeTemplatesModel,
-  makeTemplatesRouter
+  makeTemplatesRouter,
+  makeProxyWalletsController,
+  makeProxyWalletsRouter
 } = require("./lib");
 
 // const mockDBConnection = {
@@ -32,7 +34,13 @@ const templatesRouter = makeTemplatesRouter({
   controller: templatesCtrl,
   Router
 });
+const proxyWalletsCtrl = makeProxyWalletsController();
+const proxyWalletsRouter = makeProxyWalletsRouter({
+  controller: proxyWalletsCtrl,
+  Router
+});
 templatesRouter.applyRoutes(server, "/templates");
+proxyWalletsRouter.applyRoutes(server, "/proxywallet");
 
 // Start server
 server.listen(serverPort, function() {
