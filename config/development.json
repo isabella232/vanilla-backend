@@ -1,0 +1,11 @@
+{
+  "server": {
+    "name": "vanilla-dev",
+    "cors": {
+      "origins": ["*"]
+    }
+  },
+  "database": {
+    "templateDb": "mongodb://localhost/vanilla-templates"
+  }
+}

@@ -1,9 +1,24 @@
 {
   "server": {
     "port": 8080,
-    "name": "vanilla-server"
+    "name": "",
+    "acceptable": ["application/json"],
+    "cors": {
+      "origins": []
+    },
+    "throttle": {
+      "burst": 10,
+      "rate": 0.5,
+      "ip": true
+    },
+    "cpuUsageThrottle": {
+      "limit": 0.75,
+      "max": 0.95,
+      "interval": 250,
+      "halfLife": 500
+    }
   },
   "database": {
-    "templateDb": "mongodb://localhost/vanilla-templates"
+    "templateDb": ""
   }
 }

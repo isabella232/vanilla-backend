@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+
+  # base-dev:
+  #   image: tislaamo/node:8
+  #   tty: true
+  #   ports:
+  #     - "7000:7000"
+  #   volumes:
+  #     - .:/home/node/app
+  #   working_dir: /home/node/app
+
+  # dev:
+  #   extends:
+  #     service: base-dev
+  #   links:
+  #     - database
+  #   command: npm start
+
+  database:
+    image: mongo
+    ports:
+      - "0.0.0.0:27017:27017"
+
+  ganache-cli:
+    image: trufflesuite/ganache-cli:latest
+    ports:
+      - "0.0.0.0:8545:8545"
+
+  eth-explorer:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile-eth-explorer
+    ports:
+      - "0.0.0.0:8000:8000"
