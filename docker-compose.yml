@@ -1,36 +1,29 @@
-version: '3'
+version: '2'
 
 services:
 
-  # base-dev:
-  #   image: tislaamo/node:8
-  #   tty: true
-  #   ports:
-  #     - "7000:7000"
-  #   volumes:
-  #     - .:/home/node/app
-  #   working_dir: /home/node/app
-
-  # dev:
-  #   extends:
-  #     service: base-dev
-  #   links:
-  #     - database
-  #   command: npm start
-
-  database:
-    image: mongo
+  backend:
+    build:
+      context: .
+    tty: true
     ports:
-      - "0.0.0.0:27017:27017"
-
-  ganache-cli:
-    image: trufflesuite/ganache-cli:latest
-    ports:
-      - "0.0.0.0:8545:8545"
+      - "7000:7000"
+    command: npm start
+    links:
+      - database
+      - ganache-cli:eth-rpc
 
   eth-explorer:
     build:
       context: .
       dockerfile: docker/Dockerfile-eth-explorer
     ports:
-      - "0.0.0.0:8000:8000"
+      - "8000:8000"
+
+  database:
+    image: mongo
+
+  ganache-cli:
+    image: trufflesuite/ganache-cli:latest
+    ports:
+      - "8545:8545"
