@@ -1,6 +1,6 @@
 {
   "server": {
-    "port": 8080,
+    "port": 7000,
     "name": "",
     "acceptable": ["application/json"],
     "cors": {
@@ -20,5 +20,10 @@
   },
   "database": {
     "templateDb": ""
+  },
+  "web3": {
+    "providers": {
+      "HttpProvider": ""
+    }
   }
 }

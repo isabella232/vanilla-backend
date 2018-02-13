@@ -6,6 +6,11 @@
     }
   },
   "database": {
-    "templateDb": "mongodb://localhost/vanilla-templates"
+    "templateDb": "mongodb://database/vanilla-templates"
+  },
+  "web3": {
+    "providers": {
+      "HttpProvider": "http://localhost:8545"
+    }
   }
 }

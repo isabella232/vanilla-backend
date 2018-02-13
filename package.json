@@ -21,6 +21,7 @@
   },
   "scripts": {
     "precommit": "lint-staged && nsp check",
+    "start": "node index.js",
     "test": "mocha --exit lib/**/*.test.js"
   },
   "devDependencies": {
