@@ -2,7 +2,6 @@
 
 const config = require("config");
 const mongoose = require("mongoose");
-const Router = require("restify-router").Router;
 const Web3 = require("web3");
 
 const { ProxyWalletContract } = require("./lib/contracts");
@@ -31,8 +30,7 @@ const templateDb = mongoose.createConnection(templateDbPath);
 const templatesModel = makeTemplatesModel({ dbConnection: templateDb });
 const templatesCtrl = makeTemplatesController({ model: templatesModel });
 const templatesRouter = makeTemplatesRouter({
-  controller: templatesCtrl,
-  Router
+  controller: templatesCtrl
 });
 templatesRouter.applyRoutes(server, "/templates");
 
@@ -46,8 +44,7 @@ const proxyWalletsCtrl = makeProxyWalletsController({
   ProxyWalletContract
 });
 const proxyWalletsRouter = makeProxyWalletsRouter({
-  controller: proxyWalletsCtrl,
-  Router
+  controller: proxyWalletsCtrl
 });
 proxyWalletsRouter.applyRoutes(server, "/proxywallet");
 

@@ -13,6 +13,12 @@ module.exports = function() {
         load: true,
         ignore: false
       },
+      {
+        pattern: "config/**/*.json",
+        instrument: false,
+        load: true,
+        ignore: false
+      },
       { pattern: "lib/**/*.js", instrument: true, load: true, ignore: false }
     ],
     tests: ["lib/**/*.test.js"],
