@@ -9,15 +9,9 @@ const {
   makeTemplatesController,
   makeProxyWalletsController
 } = require("./lib/controllers");
-const { makeTemplatesModel } = require("./lib/models");
+const { makeTemplateModel } = require("./lib/models");
 const { makeTemplatesRouter, makeProxyWalletsRouter } = require("./lib/routes");
 const { createServer } = require("./lib/server");
-
-// const mockDBConnection = {
-//   model: () => ({
-//     find: () => []
-//   })
-// };
 
 // Server setup
 const serverOptions = config.get("server");
@@ -27,8 +21,8 @@ const server = createServer(serverOptions);
 // Template setup
 const templateDbPath = config.get("database.templateDb");
 const templateDb = mongoose.createConnection(templateDbPath);
-const templatesModel = makeTemplatesModel({ dbConnection: templateDb });
-const templatesCtrl = makeTemplatesController({ model: templatesModel });
+const templateModel = makeTemplateModel(templateDb);
+const templatesCtrl = makeTemplatesController({ model: templateModel });
 const templatesRouter = makeTemplatesRouter({
   controller: templatesCtrl
 });
