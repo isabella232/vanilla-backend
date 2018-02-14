@@ -9,7 +9,7 @@ const {
   makeTemplatesController,
   makeProxyWalletsController
 } = require("./lib/controllers");
-const { makeTemplateModel } = require("./lib/models");
+const { makeTemplateModel, makeProxyWalletModel } = require("./lib/models");
 const { makeTemplatesRouter, makeProxyWalletsRouter } = require("./lib/routes");
 const { createServer } = require("./lib/server");
 
@@ -29,11 +29,15 @@ const templatesRouter = makeTemplatesRouter({
 templatesRouter.applyRoutes(server, "/templates");
 
 // ProxyWallet setup
+const proxyWalletDbPath = config.get("database.proxyWalletDb");
+const proxyWalletDb = mongoose.createConnection(proxyWalletDbPath);
+const proxyWalletModel = makeProxyWalletModel(proxyWalletDb);
 const web3 = new Web3();
 web3.setProvider(
   new web3.providers.HttpProvider(config.get("web3.providers.HttpProvider"))
 );
 const proxyWalletsCtrl = makeProxyWalletsController({
+  model: proxyWalletModel,
   web3,
   ProxyWalletContract
 });

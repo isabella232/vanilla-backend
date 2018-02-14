@@ -22,6 +22,8 @@ services:
 
   database:
     image: mongo
+    ports:
+      - "27017:27017"
 
   ganache-cli:
     image: trufflesuite/ganache-cli:latest

@@ -24,7 +24,10 @@ module.exports = function() {
     tests: ["lib/**/*.test.js"],
     env: {
       type: "node",
-      runner: "node"
+      runner: "node",
+      params: {
+        env: "NODE_ENV=test"
+      }
     }
   };
 };
