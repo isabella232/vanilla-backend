@@ -9,6 +9,8 @@ services:
     ports:
       - "7000:7000"
     command: npm start
+    environment:
+      - NODE_ENV=development
     links:
       - database
       - ganache-cli:eth-rpc

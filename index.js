@@ -2,9 +2,7 @@
 
 const config = require("config");
 const mongoose = require("mongoose");
-const Web3 = require("web3");
 
-const { ProxyWalletContract } = require("./lib/contracts");
 const {
   makeTemplatesController,
   makeProxyWalletsController
@@ -32,14 +30,8 @@ templatesRouter.applyRoutes(server, "/templates");
 const proxyWalletDbPath = config.get("database.proxyWalletDb");
 const proxyWalletDb = mongoose.createConnection(proxyWalletDbPath);
 const proxyWalletModel = makeProxyWalletModel(proxyWalletDb);
-const web3 = new Web3();
-web3.setProvider(
-  new web3.providers.HttpProvider(config.get("web3.providers.HttpProvider"))
-);
 const proxyWalletsCtrl = makeProxyWalletsController({
-  model: proxyWalletModel,
-  web3,
-  ProxyWalletContract
+  model: proxyWalletModel
 });
 const proxyWalletsRouter = makeProxyWalletsRouter({
   controller: proxyWalletsCtrl
@@ -48,5 +40,9 @@ proxyWalletsRouter.applyRoutes(server, "/proxywallet");
 
 // Start server
 server.listen(serverPort, function() {
-  process.stdout.write("Server listening on port " + serverPort + "..\n");
+  process.stdout.write(
+    `Server running with env '${
+      process.env.NODE_ENV
+    }' and listening on port '${serverPort}'..\n`
+  );
 });

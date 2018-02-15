@@ -19,7 +19,8 @@
     }
   },
   "database": {
-    "templateDb": ""
+    "templateDb": "",
+    "proxyWalletDb": ""
   },
   "web3": {
     "providers": {
