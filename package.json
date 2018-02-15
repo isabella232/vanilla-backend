@@ -18,7 +18,7 @@
   "scripts": {
     "precommit": "lint-staged && nsp check",
     "start": "node index.js",
-    "test": "mocha --exit lib/**/*.test.js"
+    "test": "mocha --require ./lib/utils/test_setup.js --exit  lib/**/*.test.js"
   },
   "devDependencies": {
     "@tislaamo/eslint-config": "^1.0.3",
