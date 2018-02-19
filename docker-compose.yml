@@ -13,21 +13,8 @@ services:
       - NODE_ENV=development
     links:
       - database
-      - ganache-cli:eth-rpc
-
-  eth-explorer:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile-eth-explorer
-    ports:
-      - "8000:8000"
 
   database:
     image: mongo
     ports:
       - "27017:27017"
-
-  ganache-cli:
-    image: trufflesuite/ganache-cli:latest
-    ports:
-      - "8545:8545"
