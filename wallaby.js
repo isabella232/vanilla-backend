@@ -27,6 +27,12 @@ module.exports = function() {
         load: true,
         ignore: false
       },
+      {
+        pattern: "lib/**/*.json",
+        instrument: false,
+        load: true,
+        ignore: false
+      },
       { pattern: "lib/**/*.js", instrument: true, load: true, ignore: false }
     ],
     tests: ["lib/**/*.test.js"],

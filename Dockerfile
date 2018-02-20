@@ -1,9 +1,9 @@
 FROM tislaamo/node:8
 
 ADD package.json .
-ADD yarn.lock .
+ADD package-lock.json .
 
-RUN yarn install
+RUN npm install
 
 ADD . .
 
