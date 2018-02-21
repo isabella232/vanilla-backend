@@ -19,24 +19,28 @@ const server = createServer(serverOptions);
 // Template setup
 const templateDbPath = config.get("database.templateDb");
 const templateDb = mongoose.createConnection(templateDbPath);
-const templateModel = makeTemplateModel(templateDb);
-const templatesCtrl = makeTemplatesController({ model: templateModel });
-const templatesRouter = makeTemplatesRouter({
-  controller: templatesCtrl
+const templateModel = makeTemplateModel(templateDb).then(() => {
+  // makeModel returns a promise which resolves when indexes are built
+  const templatesCtrl = makeTemplatesController({ model: templateModel });
+  const templatesRouter = makeTemplatesRouter({
+    controller: templatesCtrl
+  });
+  templatesRouter.applyRoutes(server, "/templates");
 });
-templatesRouter.applyRoutes(server, "/templates");
 
 // ProxyWallet setup
 const proxyWalletDbPath = config.get("database.proxyWalletDb");
 const proxyWalletDb = mongoose.createConnection(proxyWalletDbPath);
-const proxyWalletModel = makeProxyWalletModel(proxyWalletDb);
-const proxyWalletsCtrl = makeProxyWalletsController({
-  model: proxyWalletModel
+const proxyWalletModel = makeProxyWalletModel(proxyWalletDb).then(() => {
+  // makeModel returns a promise which resolves when indexes are built
+  const proxyWalletsCtrl = makeProxyWalletsController({
+    model: proxyWalletModel
+  });
+  const proxyWalletsRouter = makeProxyWalletsRouter({
+    controller: proxyWalletsCtrl
+  });
+  proxyWalletsRouter.applyRoutes(server, "/proxywallet");
 });
-const proxyWalletsRouter = makeProxyWalletsRouter({
-  controller: proxyWalletsCtrl
-});
-proxyWalletsRouter.applyRoutes(server, "/proxywallet");
 
 // Start server
 server.listen(serverPort, function() {

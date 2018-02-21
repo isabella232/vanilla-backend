@@ -18,6 +18,16 @@
       "halfLife": 500
     }
   },
+  "constants": {
+    "order": {
+      "positionTypeEnum": ["LONG", "SHORT"],
+      "positionLeverageMin": 2,
+      "positionLeverageMax": 5,
+      "positionDurationMin": 0,
+      "positionDurationMax": 60,
+      "currencyPairsEnum": ["ETH-USD"]
+    }
+  },
   "database": {
     "templateDb": "",
     "proxyWalletDb": ""
