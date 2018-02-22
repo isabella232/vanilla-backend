@@ -39,7 +39,6 @@
     "sinon": "^4.3.0"
   },
   "dependencies": {
-    "big-number": "^0.4.0",
     "config": "^1.29.4",
     "mongoose": "^5.0.3",
     "restify": "^6.3.4",
