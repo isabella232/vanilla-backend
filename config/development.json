@@ -6,8 +6,9 @@
     }
   },
   "database": {
-    "templateDb": "mongodb://localhost/vanilla-templates",
-    "proxyWalletDb": "mongodb://localhost/vanilla-proxywallets"
+    "orderDb": "mongodb://localhost/vanilla-orders",
+    "proxyWalletDb": "mongodb://localhost/vanilla-proxywallets",
+    "templateDb": "mongodb://localhost/vanilla-templates"
   },
   "web3": {
     "providers": {
