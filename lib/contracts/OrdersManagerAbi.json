@@ -1,5 +1,23 @@
 [
   {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "isLongs",
+        "type": "bool[]"
+      },
+      {
+        "name": "balances",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "requireZeroSum",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
     "constant": false,
     "inputs": [
       {
@@ -11,6 +29,25 @@
     "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "CURRENCY_PAIRS",
+    "outputs": [
+      {
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -43,6 +80,94 @@
   },
   {
     "constant": true,
+    "inputs": [
+      {
+        "name": "currencyPair",
+        "type": "string"
+      },
+      {
+        "name": "positionType",
+        "type": "string"
+      },
+      {
+        "name": "leverage",
+        "type": "uint8"
+      }
+    ],
+    "name": "validateAllParameters",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "POSITION_TYPES",
+    "outputs": [
+      {
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "LEVERAGES",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "leverage",
+        "type": "uint8"
+      }
+    ],
+    "name": "validateLeverage",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "positionType",
+        "type": "string"
+      }
+    ],
+    "name": "validatePositionType",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
     "inputs": [],
     "name": "MAXIMUM_POSITION",
     "outputs": [
@@ -67,6 +192,20 @@
     "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "currencyPair",
+        "type": "string"
+      }
+    ],
+    "name": "validateCurrencyPair",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -172,7 +311,7 @@
     "constant": true,
     "inputs": [
       {
-        "name": "orderHash",
+        "name": "orderID",
         "type": "bytes32"
       }
     ],
@@ -180,7 +319,11 @@
     "outputs": [
       {
         "name": "",
-        "type": "bool"
+        "type": "string"
+      },
+      {
+        "name": "",
+        "type": "string"
       },
       {
         "name": "",
@@ -208,11 +351,15 @@
     "inputs": [
       {
         "name": "orderID",
-        "type": "string"
+        "type": "bytes32"
       },
       {
-        "name": "isLong",
-        "type": "bool"
+        "name": "currencyPair",
+        "type": "bytes7"
+      },
+      {
+        "name": "positionType",
+        "type": "bytes5"
       },
       {
         "name": "duration",
@@ -220,7 +367,7 @@
       },
       {
         "name": "leverage",
-        "type": "uint256"
+        "type": "uint8"
       },
       {
         "name": "paymentAddress",
@@ -228,12 +375,7 @@
       }
     ],
     "name": "createOrder",
-    "outputs": [
-      {
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
+    "outputs": [],
     "payable": true,
     "stateMutability": "payable",
     "type": "function"
@@ -242,7 +384,7 @@
     "constant": false,
     "inputs": [
       {
-        "name": "orderHash",
+        "name": "orderID",
         "type": "bytes32"
       }
     ],
@@ -256,7 +398,7 @@
     "constant": false,
     "inputs": [
       {
-        "name": "orderHash",
+        "name": "orderID",
         "type": "bytes32"
       },
       {

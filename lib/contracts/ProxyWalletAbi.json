@@ -1,14 +1,5 @@
 [
   {
-    "constant": false,
-    "inputs": [],
-    "name": "destroy",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "constant": true,
     "inputs": [],
     "name": "owner",
@@ -45,20 +36,6 @@
       }
     ],
     "name": "transferOwnership",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "paymentAddress",
-        "type": "address"
-      }
-    ],
-    "name": "refund",
     "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
@@ -131,5 +108,28 @@
     ],
     "name": "OwnershipTransferred",
     "type": "event"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "paymentAddress",
+        "type": "address"
+      }
+    ],
+    "name": "refund",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "destroy",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
   }
 ]

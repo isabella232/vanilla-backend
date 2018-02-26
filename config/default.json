@@ -24,9 +24,14 @@
       "positionLeverageMin": 2,
       "positionLeverageMax": 5,
       "positionDurationMin": 0,
-      "positionDurationMax": 60,
+      "positionDurationMax": 864000,
       "currencyPairsEnum": ["ETH-USD"],
       "amountMax": "100000000000000000000"
+    }
+  },
+  "chain": {
+    "ordersManager": {
+      "address": ""
     }
   },
   "database": {
