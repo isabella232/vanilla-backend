@@ -1,4 +1,4 @@
-FROM tislaamo/node:8
+FROM tislaamo/node:10
 
 ADD package.json .
 ADD package-lock.json .
@@ -9,4 +9,4 @@ ADD . .
 
 EXPOSE 7000
 
-CMD ["yarn", "start"]
+CMD ["npm", "start"]
